@@ -11,7 +11,7 @@ Use /tdd where possible, at pre-agreed seams.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
-Once done, call the Skill tool with the two-axis `code-review` (Standards + Spec) to review the work. The harness may also list a built-in `code-review`, a bug hunt at an effort level: that is a different skill. The two-axis one is usually namespaced by its plugin (`<plugin>:code-review`). Call a bare `code-review` only after checking that its description names the Standards and Spec axes.
+Once done, call the Skill tool with the two-axis `code-review` (Standards + Spec) to review the work. The harness may also list a built-in `code-review`, a bug hunt at an effort level: that is a different skill. The two-axis one is usually namespaced by its plugin as `lloydeverett:code-review`. Call a bare `code-review` only after checking that its description names the Standards and Spec axes.
 
 If the work came from a ticket file, set its `**Status:**` to `done` and tick the acceptance criteria the work meets.
 
