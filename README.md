@@ -1,3 +1,23 @@
+# Install this fork
+
+From a terminal:
+
+```bash
+claude plugin uninstall mattpocock-skills@claude-plugins-official
+claude plugin marketplace add lloydeverett/skills
+claude plugin install lloydeverett@lloydeverett
+```
+
+Or from inside a Claude Code session:
+
+```
+/plugin uninstall mattpocock-skills@claude-plugins-official
+/plugin marketplace add lloydeverett/skills
+/plugin install lloydeverett@lloydeverett
+```
+
+The first command removes the upstream plugin, so skills don't load twice. Skip it if upstream isn't installed. Restart Claude Code afterwards. To pull later changes, run `claude plugin marketplace update lloydeverett`, then `claude plugin update lloydeverett@lloydeverett`, and restart.
+
 # Changes in this fork
 
 Personal fork of [mattpocock/skills](https://github.com/mattpocock/skills). Changes from upstream:
@@ -6,7 +26,7 @@ Personal fork of [mattpocock/skills](https://github.com/mattpocock/skills). Chan
 - No issue tracker support. Specs go in `docs/specs/<feature>.md`, tickets in `docs/tickets/<feature>/NN-<slug>.md`, wayfinder maps in `docs/maps/<effort>/`. `implement` marks a finished ticket `done`.
 - `triage` and `setup-matt-pocock-skills` moved to `skills/deprecated/`. There is no setup step.
 - Every reference to `code-review` tells the agent to confirm it is calling this two-axis review (Standards + Spec) and not Claude Code's built-in bug-hunting `code-review`. Its sub-agents are told to review directly instead of re-invoking a review skill.
-- The Claude Code plugin is named `lloydeverett`, so its skills are namespaced `lloydeverett:<skill>`. The install commands below install upstream; install this fork with `/plugin marketplace add lloydeverett/skills`, then `/plugin install lloydeverett@lloydeverett`.
+- The Claude Code plugin is named `lloydeverett`, so its skills are namespaced `lloydeverett:<skill>`. The install commands in the upstream README below install upstream, not this fork.
 
 ---
 
