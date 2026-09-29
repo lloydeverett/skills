@@ -1,6 +1,6 @@
 ## What it does
 
-`code-review` reviews the diff between `HEAD` and a fixed point you name (a commit, a branch, a tag, `main`, `HEAD~5`) along two axes. **Standards** asks whether the code follows how this repo writes code. **Spec** asks whether the code does what the originating issue or [spec](https://www.aihero.dev/ai-coding-dictionary/spec) asked for. Each axis runs in its own [sub-agent](https://www.aihero.dev/ai-coding-dictionary/subagent) so neither sees the other's reasoning.
+`code-review` reviews the diff between `HEAD` and a fixed point you name (a commit, a branch, a tag, `main`, `HEAD~5`) along two axes. **Standards** asks whether the code follows how this repo writes code. **Spec** asks whether the code does what the originating [spec](https://www.aihero.dev/ai-coding-dictionary/spec) or ticket asked for. Each axis runs in its own [sub-agent](https://www.aihero.dev/ai-coding-dictionary/subagent) so neither sees the other's reasoning.
 
 The two axes are never merged and never re-ranked. The report ends with a worst issue *per axis* and refuses to name a single winner across them, because a change can pass one axis and fail the other: code that follows every convention while implementing the wrong thing passes Standards and fails Spec; code that does exactly what the [ticket](https://www.aihero.dev/ai-coding-dictionary/ticket) asked while breaking the repo's conventions does the reverse. A blended verdict lets the passing axis hide the failing one.
 
@@ -25,19 +25,19 @@ The Standards axis needs nothing. It reads whatever the repo documents (`CODING_
 
 The Spec axis needs a spec to exist and be findable. It looks in this order:
 
-1. Issue references in the commit messages (`#123`, `Closes #45`, a GitLab `!67`), fetched through `docs/agents/issue-tracker.md`.
-2. A path you pass in as an argument.
-3. A spec file under `docs/`, `specs/`, or `.scratch/` matching the branch or feature name.
+1. A path you pass in as an argument.
+2. Spec or ticket paths named in the commit messages (`docs/specs/...`, `docs/tickets/...`).
+3. A spec under `docs/specs/` or a ticket directory under `docs/tickets/` matching the branch or feature name. A ticket's `**Spec:**` line leads to its parent spec, and both get checked.
 4. Asking you.
 
-Step 1 depends on `docs/agents/issue-tracker.md`, which [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) writes. Without it the axis still works if you hand it a path. With no spec at all, the Spec sub-agent is skipped and the report says "no spec available" rather than inventing requirements.
+With no spec at all, the Spec sub-agent is skipped and the report says "no spec available" rather than inventing requirements.
 
 ## The two axes
 
 | | Standards | Spec |
 | --- | --- | --- |
 | Question | Is it built right? | Is it the right thing? |
-| Reads | The repo's documented standards, plus the smell baseline | The originating issue or spec |
+| Reads | The repo's documented standards, plus the smell baseline | The originating spec or ticket |
 | Reports | Documented breaches (can be hard), and smells (always judgement calls) | Missing or partial requirements, scope creep, requirements implemented wrongly |
 | Every finding cites | The standards file and the rule, or the named smell plus the hunk | The line of the spec |
 

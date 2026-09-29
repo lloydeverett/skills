@@ -1,3 +1,6 @@
 # Deprecated
 
-Skills I no longer use. This bucket is currently empty: a retired skill is deleted, and the changeset that removes it names whatever replaced it.
+Skills I no longer use.
+
+- **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)**: Configured a repo's issue tracker, triage labels, and domain doc layout. Retired in this fork: specs and tickets live as markdown under `docs/`, so there is nothing to configure.
+- **[triage](./triage/SKILL.md)**: Moved issues and external PRs through a state machine of triage roles on an issue tracker. Retired in this fork along with issue tracker support.
