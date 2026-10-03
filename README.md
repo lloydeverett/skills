@@ -25,7 +25,7 @@ Personal fork of [mattpocock/skills](https://github.com/mattpocock/skills). Chan
 - `implement` is model-invoked. Its description and body restrict it to explicit user requests, since it commits to the current branch.
 - No issue tracker support. Specs go in `docs/specs/<feature>.md`, tickets in `docs/tickets/<feature>/NN-<slug>.md`, wayfinder maps in `docs/maps/<effort>/`. `implement` marks a finished ticket `done`.
 - `triage` and `setup-matt-pocock-skills` moved to `skills/deprecated/`. There is no setup step.
-- Every reference to `code-review` tells the agent to confirm it is calling this two-axis review (Standards + Spec) and not Claude Code's built-in bug-hunting `code-review`. Its sub-agents are told to review directly instead of re-invoking a review skill.
+- `code-review` is renamed `codereview`, so it never collides with Claude Code's built-in bug-hunting `code-review`. Its sub-agents are told to review directly instead of re-invoking a review skill.
 - The Claude Code plugin is named `lloydeverett`, so its skills are namespaced `lloydeverett:<skill>`. The install commands in the upstream README below install upstream, not this fork.
 
 ---
